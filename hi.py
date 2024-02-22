@@ -27,10 +27,24 @@ class Item_Details(db.Model):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-        new_login = Login(Username="John", password="xyz", phone_no="9126791417")
+        """new_login = Login(Username="John", password="xyz", phone_no="9126791417")
         db.session.add(new_login)
         db.session.commit()
-        app.run(debug=True)
+        app.run(debug=True)"""
+    
+@app.route('/login', methods=['POST'])
+def authorize_login():
+    data = request.get_json()
+    uname = data.get("Username")
+    pwd = data.get("password")
+
+    u_auth = Login.query.filter_by(Username=uname).first()
+    p_auth = Login.query.filter_by(password = pwd).first()
+
+    if u_auth and p_auth:
+        return "Login Authenticated"
+    else:
+        return "Login Failed"
     
 
 @app.route('/create-item', methods=['POST'])
