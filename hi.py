@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shelf'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///newshelf'
     CORS(app)
     return app
 
@@ -30,7 +30,7 @@ class Item_Details(db.Model):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-        new_login = Login(Username="abhi", password="Karakkat", owner="abhijith")
+        new_login = Login(Username="abhi", password="Karakkat", phone_no="9876543214")
         db.session.add(new_login)
         db.session.commit()
     app.run(debug=True)
@@ -49,3 +49,5 @@ def create_item():
     
     db.session.add(new_item)
     db.session.commit()
+
+
