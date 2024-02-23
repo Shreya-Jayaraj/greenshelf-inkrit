@@ -24,6 +24,12 @@ class Item_Details(db.Model):
     owner_uname = db.Column(db.String(200),nullable = False)
     qty = db.Column(db.Integer)
 
+class Request_Details(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_uname = db.Column(db.String(200),nullable = False)
+    item = db.Column(db.String(200), nullable=False)
+    prod_desc = db.Column(db.String(500))
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
@@ -42,11 +48,10 @@ def authorize_login():
     p_auth = Login.query.filter_by(password = pwd).first()
 
     if u_auth and p_auth:
-        return "Login Authenticated"
+        return jsonify({'message': "Login Authenticated"})
     else:
-        return "Login Failed"
+        return jsonify({'message': "Login Failed"})
     
-
 @app.route('/create-item', methods=['POST'])
 def create_item():
     data = request.get_json()
@@ -62,7 +67,7 @@ def create_item():
     db.session.add(new_item)
     db.session.commit()
 
-    return "Item created successfully"
+    return jsonify({'message': "Item created successfully"})
 
 @app.route('/create-item', methods=['PUT'])
 def update_phone():
@@ -89,6 +94,31 @@ def delete():
     db.session.delete(item)
     db.session.commit()
     return jsonify({'message': 'Item deleted successfully'})
+
+@app.route('/request-item', methods=['POST'])
+def request_item():
+    data = request.get_json()
+    new_request_item = Request_Details(
+        item = data.get('item'),
+        prod_desc=data.get('prod_desc'),
+        user_uname=data.get('user_uname')
+    )
+
+    db.session.add(new_request_item)
+    db.session.commit()
+
+    return jsonify({'message': "Request created successfully"})
+
+@app.route('/request-item', methods=['PUT'])
+def update_phone_user():
+    data = request.get_json()
+    user_uname = data.get('user_uname')
+    phone_no = data.get('phone_no')
+    user = Login.query.filter_by(Username=user_uname).first()
+
+    user.phone_no = phone_no
+    db.session.commit()
+    return jsonify({'message': 'Phone number updated successfully'})
 
 if __name__ == "__main__":
     app.run(debug=True)
