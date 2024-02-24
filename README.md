@@ -14,3 +14,7 @@ GreenShelf is a platform designed to promote sustainability and reduce waste wit
 - React: Frontend development
 - Flask: Backend development
 - SQLite: Database management
+
+  ## Presentation
+  - Check out the following presentation to learn more about the project.
+  - https://www.canva.com/design/DAF9jK9mQqM/yMnuK4-D7Knw4kk2HoK6nw/edit?utm_content=DAF9jK9mQqM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
