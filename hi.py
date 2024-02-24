@@ -120,5 +120,14 @@ def update_phone_user():
     db.session.commit()
     return jsonify({'message': 'Phone number updated successfully'})
 
+@app.route('/delete-request', methods=['DELETE'])
+def delete_request():
+    data = request.get_json()
+    item_name = data.get('item')
+    item = Request_Details.query.filter_by(item=item_name).first()
+    db.session.delete(item)
+    db.session.commit()
+    return jsonify({'message': 'Request deleted successfully'})
+
 if __name__ == "__main__":
     app.run(debug=True)
