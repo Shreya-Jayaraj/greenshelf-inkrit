@@ -1,5 +1,5 @@
 # GreenShelf
-![GreenShelf Logo](https://imgur.com/a/AnfWICr)
+![GreenShelf Logo](https://imgur.com/ZZRuBMK)
 ## Overview
 
 GreenShelf is a platform designed to promote sustainability and reduce waste within educational communities. It facilitates the exchange of unused materials among students, fostering a culture of resourcefulness and environmental consciousness. The platform allows users to list available materials, search for specific items, and obtain required items.
