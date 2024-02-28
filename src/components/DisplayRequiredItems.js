@@ -8,7 +8,7 @@ const DisplayRequiredItems = () => {
     const [data, setData] = useState(null);
 
     useEffect ( () => {
-        fetch ('http://localhost:4050/requestItem', {
+        fetch ('http://127.0.0.1:5000/get-request-item', { 
         method: 'GET',
         
     })
@@ -27,10 +27,14 @@ const DisplayRequiredItems = () => {
     })
     },[])
 
-    const handleAccept = (id) => {
+    const handleAccept = (eachItem) => {
 
-        fetch('http://localhost:4050/requestItem/' + id, {
+        fetch('http://127.0.0.1:5000/delete-request', {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(eachItem.item),
             
         })
         .then( (res) => {
@@ -55,7 +59,7 @@ const DisplayRequiredItems = () => {
                         <p>{eachItem.prod_desc}</p>
                         <div className=" mt-1 card-actions justify-between">
                             <Link to="/contribute"><button className="btn btn-outline btn-accent" onClick={()=>{
-                                handleAccept(eachItem.id);
+                                handleAccept(eachItem);
                                 history.push("/contribute");
                             }}>Accept</button></Link>
                             <button className="btn btn-outline">Wait</button>

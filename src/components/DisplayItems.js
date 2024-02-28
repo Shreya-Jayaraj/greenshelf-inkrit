@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const DisplayItems = (props) => {

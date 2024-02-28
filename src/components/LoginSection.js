@@ -62,8 +62,8 @@ const LoginSection = (props) => {
   return (
       <div className="main-login-section flex justify-center items-center  bg-blue-gray-100">
 
-          <div className="login">
-              <Card color="transparent" shadow={false} className="" style={{ marginLeft: "40px", marginRight: "40px", marginTop: "40px" }}>
+          <div className="login w-fit p-10 rounded-lg">
+              <Card color="transparent" shadow={false} className=" min-w-fit flex justify-center items-center" >
                   <Typography variant="h4" color="blue-gray" className="text-center mb-2">
                       Sign In
                   </Typography>
@@ -71,7 +71,7 @@ const LoginSection = (props) => {
                       Nice to meet you! Enter your details.
                       <span style={{ display: status ? "none" : "block", color: "red" }}>Enter valid username or password</span>
                   </Typography>
-                  <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                  <form className="mt-8 mb-2 w-52 sm:w-96">
                       <div className="mb-1 flex flex-col gap-6 ">
                           <Typography variant="h6" color="blue-gray" className="-mb-3">
                               User Name
@@ -117,7 +117,7 @@ const LoginSection = (props) => {
                           }}/></div>
                       </div>
 
-                      <Button className="mt-6" fullWidth style={{ marginTop: "20px" }} onClick={handleSubmit}>
+                      <Button className="mt-6" fullWidth  onClick={handleSubmit}>
                           sign in
                       </Button>
 

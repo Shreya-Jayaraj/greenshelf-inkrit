@@ -38,7 +38,7 @@ const RequestItem = () => {
     };
   
     return (
-      <div className=" w-full  flex justify-center items-center bg-white p-4">
+      <div className=" h-screen w-full  flex justify-center items-center bg-blue-gray-100 p-4">
       <Card className= 'contribute-section p-10 h-4/5' shadow={false}>
         <Typography variant="h4" color="blue-gray">
             Request item

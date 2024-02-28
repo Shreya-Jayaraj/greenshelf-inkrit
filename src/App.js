@@ -1,12 +1,4 @@
 
-import {
-  Card,
-  Input,
-  Checkbox,
-  Button,
-  Typography,
-  useTabs,
-} from "@material-tailwind/react";
 import LoginSection from "./components/LoginSection";
 import DisplayItems from "./components/DisplayItems";
 import { useState } from "react";

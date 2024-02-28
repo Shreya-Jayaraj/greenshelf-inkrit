@@ -52,7 +52,7 @@ const SimpleRegistrationForm = () => {
   };
 
   return (
-    <div className=" w-full flex justify-center bg-white p-4">
+    <div className=" w-full flex justify-center bg-blue-gray-100 p-4">
     <Card className= 'contribute-section p-10 ' shadow={false}>
       <Typography variant="h4" color="blue-gray">
         Item Registration
