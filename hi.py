@@ -129,5 +129,12 @@ def delete_request():
     db.session.commit()
     return jsonify({'message': 'Request deleted successfully'})
 
+@app.route('/get-request-item', methods=['GET'])
+def get_request_item():
+    requests = Request_Details.query.all()
+    request_list = [{'id': request.id, 'uname': request.user_uname, 'item': request.item, 'prod_desc':request.prod_desc} for request in requests]
+    return jsonify({'requests': request_list})
+
+
 if __name__ == "__main__":
     app.run(debug=True)
