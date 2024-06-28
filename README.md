@@ -22,5 +22,5 @@ GreenShelf is a platform designed to promote sustainability and reduce waste wit
 ## Contributors
 - Abhijith K B
 - Akash Kumar
-- Abhinanad Nandakumar
+- Abhinand Nandakumar
 - Shreya Jayaraj
